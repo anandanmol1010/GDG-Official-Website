@@ -49,7 +49,7 @@ export default function About() {
 
   return (
     <>
-      <section className="min-h-screen bg-linear-to-b from-gray-950 to-gray-900 flex items-center justify-center">
+      {/* <section className="min-h-screen bg-linear-to-b from-gray-950 to-gray-900 flex items-center justify-center">
         <div className="text-center">
           <h1 className="text-6xl font-bold text-slate-100 mb-4">
             Welcome to GDG
@@ -58,7 +58,7 @@ export default function About() {
             Scroll down to see About section
           </p>
         </div>
-      </section>
+      </section> */}
 
       <section
         ref={sectionRef}
@@ -74,10 +74,11 @@ export default function About() {
               }`}
             >
               <div>
-                <h2 className="text-5xl md:text-6xl font-bold text-slate-100 mb-6 text-left">
-                  About Us
-                </h2>
-                <div className="h-1.5 w-24 bg-linear-to-r from-red-500  via-green-400 to-yellow-400 rounded-full mb-8"></div>
+                <h2 className="text-5xl md:text-7xl font-bold text-slate-300 mb-6 text-left">
+  About Us
+</h2>
+<div className="h-1.5 w-28 bg-linear-to-r from-red-400  via-green-400 to-yellow-300 rounded-full mb-8 shadow-sm"></div>
+
               </div>
 
               <div className="space-y-6 text-left">
@@ -100,25 +101,25 @@ export default function About() {
               </div>
 
               <div className="flex flex-wrap gap-4 pt-6 text-left">
-                <div className="bg-linear-to-br from-slate-800/40 to-slate-900/40 border border-slate-700/50 rounded-xl px-6 py-4 backdrop-blur-sm hover:border-blue-400/40 transition-all hover:shadow-md hover:shadow-blue-500/10">
+                <div className="bg-linear-to-br from-slate-800/40 to-slate-900/40 border border-slate-700/50 rounded-xl px-4 py-4 backdrop-blur-sm hover:border-emerald-400/40 transition-all hover:shadow-md hover:shadow-blue-500/10">
                   <div className="text-4xl font-bold text-blue-300">
-                    {isVisible && <CountUp from={0} to={500} duration={2} />}+
+                    {isVisible && <CountUp from={0} to={1000} duration={2} />}+
                   </div>
-                  <div className="text-slate-400 text-sm mt-1">Members</div>
+                  <div className="text-slate-400 text-sm mt-1">Community Members</div>
                 </div>
 
-                <div className="bg-linear-to-br from-slate-800/40 to-slate-900/40 border border-slate-700/50 rounded-xl px-6 py-4 backdrop-blur-sm hover:border-emerald-400/40 transition-all hover:shadow-md hover:shadow-emerald-500/10">
-                  <div className="text-4xl font-bold text-emerald-300">
+                <div className="bg-linear-to-br from-slate-800/40 to-slate-900/40 border border-slate-700/50 rounded-xl px-4 py-4 backdrop-blur-sm hover:border-emerald-400/40 transition-all hover:shadow-md hover:shadow-emerald-500/10">
+                  <div className="text-4xl font-bold text-blue-300">
                     {isVisible && <CountUp from={0} to={50} duration={2} />}+
                   </div>
-                  <div className="text-slate-400 text-sm mt-1">Events</div>
+                  <div className="text-slate-400 text-sm mt-1">Team Members</div>
                 </div>
 
-                <div className="bg-linear-to-br from-slate-800/40 to-slate-900/40 border border-slate-700/50 rounded-xl px-6 py-4 backdrop-blur-sm hover:border-amber-400/40 transition-all hover:shadow-md hover:shadow-amber-500/10">
-                  <div className="text-4xl font-bold text-amber-300">
+                <div className="bg-linear-to-br from-slate-800/40 to-slate-900/40 border border-slate-700/50 rounded-xl px-4 py-4 backdrop-blur-sm hover:border-emerald-400/40 transition-all hover:shadow-md hover:shadow-amber-500/10">
+                  <div className="text-4xl font-bold text-blue-300">
                     {isVisible && <CountUp from={0} to={20} duration={2} />}+
                   </div>
-                  <div className="text-slate-400 text-sm mt-1">Workshops</div>
+                  <div className="text-slate-400 text-sm mt-1">Events</div>
                 </div>
               </div>
             </div>
