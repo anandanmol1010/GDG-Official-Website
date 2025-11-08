@@ -1,0 +1,173 @@
+"use client";
+
+import React, { useRef, useEffect, useState } from "react";
+import { CardBody, CardContainer, CardItem } from "./ui/3dCard";
+import CountUp from "./ui/CountUp";
+
+export default function About() {
+  const [isVisible, setIsVisible] = useState(false);
+  const [cardVisible, setCardVisible] = useState([false, false, false]);
+
+  const sectionRef = useRef(null);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsVisible(true);
+          setTimeout(() => setCardVisible([true, false, false]), 300);
+          setTimeout(() => setCardVisible([true, true, false]), 600);
+          setTimeout(() => setCardVisible([true, true, true]), 900);
+        }
+      },
+      { threshold: 0.2 }
+    );
+
+    if (sectionRef.current) observer.observe(sectionRef.current);
+    return () => {
+      if (sectionRef.current) observer.unobserve(sectionRef.current);
+    };
+  }, []);
+
+  const images = [
+    {
+      src: "https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=600&h=800&fit=crop",
+      title: "Community Events",
+      id: "CE01",
+    },
+    {
+      src: "https://images.unsplash.com/photo-1591115765373-5207764f72e7?w=600&h=800&fit=crop",
+      title: "Tech Workshops",
+      id: "TW02",
+    },
+    {
+      src: "https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?w=600&h=800&fit=crop",
+      title: "Hackathons",
+      id: "HK03",
+    },
+  ];
+
+  return (
+    <>
+  
+      <section className="min-h-screen bg-linear-to-b from-gray-950 to-gray-900 flex items-center justify-center">
+        <div className="text-center">
+          <h1 className="text-6xl font-bold text-slate-100 mb-4">
+            Welcome to GDG
+          </h1>
+          <p className="text-xl text-slate-400">
+            Scroll down to see About section
+          </p>
+        </div>
+      </section>
+
+    
+      <section
+        ref={sectionRef}
+        className="min-h-screen bg-linear-to-b from-gray-900 via-gray-950 to-black py-20 px-6 md:px-12 lg:px-20"
+      >
+        <div className="max-w-7xl mx-auto">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-start">
+            
+            <div
+              className={`space-y-8 transition-all duration-1000 ${
+                isVisible
+                  ? "opacity-100 translate-x-0"
+                  : "opacity-0 -translate-x-12"
+              }`}
+            >
+              <div>
+                <h2 className="text-5xl md:text-6xl font-bold text-slate-100 mb-6 text-left">
+                  About Us
+                </h2>
+                <div className="h-1.5 w-24 bg-linear-to-r from-blue-400 via-emerald-400 to-amber-400 rounded-full mb-8"></div>
+              </div>
+
+              <div className="space-y-6 text-left">
+                <p className="text-slate-300 text-lg leading-relaxed">
+                  Google Developer Groups at ABESEC is a vibrant community of
+                  passionate developers, designers, and tech enthusiasts. We
+                  bring together students who share a common interest in Google
+                  technologies and are eager to learn, collaborate, and
+                  innovate.
+                </p>
+                <p className="text-slate-400 text-base leading-relaxed">
+                  Our mission is to foster a culture of learning and growth by
+                  organizing workshops, hackathons, tech talks, and networking
+                  events.
+                </p>
+                <p className="text-slate-400 text-base leading-relaxed">
+                  Whether you're a beginner or an experienced developer, GDG
+                  ABESEC welcomes everyone to learn and grow together.
+                </p>
+              </div>
+
+             
+              <div className="flex flex-wrap gap-4 pt-6 text-left">
+             
+                <div className="bg-linear-to-br from-slate-800/40 to-slate-900/40 border border-slate-700/50 rounded-xl px-6 py-4 backdrop-blur-sm hover:border-blue-400/40 transition-all hover:shadow-md hover:shadow-blue-500/10">
+                  <div className="text-4xl font-bold text-blue-300">
+                    {isVisible && <CountUp from={0} to={500} duration={2} />}+
+                  </div>
+                  <div className="text-slate-400 text-sm mt-1">Members</div>
+                </div>
+
+                
+                <div className="bg-linear-to-br from-slate-800/40 to-slate-900/40 border border-slate-700/50 rounded-xl px-6 py-4 backdrop-blur-sm hover:border-emerald-400/40 transition-all hover:shadow-md hover:shadow-emerald-500/10">
+                  <div className="text-4xl font-bold text-emerald-300">
+                    {isVisible && <CountUp from={0} to={50} duration={2} />}+
+                  </div>
+                  <div className="text-slate-400 text-sm mt-1">Events</div>
+                </div>
+
+               
+                <div className="bg-linear-to-br from-slate-800/40 to-slate-900/40 border border-slate-700/50 rounded-xl px-6 py-4 backdrop-blur-sm hover:border-amber-400/40 transition-all hover:shadow-md hover:shadow-amber-500/10">
+                  <div className="text-4xl font-bold text-amber-300">
+                    {isVisible && <CountUp from={0} to={20} duration={2} />}+
+                  </div>
+                  <div className="text-slate-400 text-sm mt-1">Workshops</div>
+                </div>
+              </div>
+            </div>
+
+          
+          <div className="max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 gap-6">
+  {images.map((image, index) => (
+    <div
+      key={image.id}
+      className={`transition-all duration-700 ${
+        cardVisible[index]
+          ? "opacity-100 translate-y-0"
+          : "opacity-0 translate-y-12"
+      } ${index === 0 ? "sm:col-span-2" : ""}`}
+    >
+      <CardContainer className="w-full">
+        <CardBody className="relative rounded-xl overflow-hidden border border-slate-700/50 bg-slate-900/40 backdrop-blur-sm hover:border-slate-400/50 transition-all duration-300 hover:shadow-xl hover:shadow-slate-500/10">
+          <CardItem
+            translateZ="100"
+            className={`w-full h-full transition-transform duration-500 group-hover/card:scale-[1.05] ${
+              index !== 0 ? "scale-x-[1.05]" : ""
+            }`}
+          >
+            <img
+              src={image.src}
+              alt={image.id}
+              className={`object-cover rounded-xl ${
+                index === 0
+                  ? "w-full h-60 sm:h-[250px]"
+                  : "w-full h-72 sm:h-64"
+              }`}
+            />
+          </CardItem>
+        </CardBody>
+      </CardContainer>
+    </div>
+  ))}
+</div>
+
+          </div>
+        </div>
+      </section>
+    </>
+  );
+}
