@@ -73,9 +73,9 @@ export default function StatsSection() {
         {stats.map((stat, index) => (
           <div
             key={stat.id}
-            className="stat-card w-full flex h-36 -mb-3 flex-col items-center justify-center rounded-3xl border border-slate-700/60 bg-slate-900/80 shadow-[0_0_30px_rgba(0,0,0,0.3)] backdrop-blur-md text-center p-4 hover:border-slate-400/50 transition-all duration-500"
+            className="stat-card w-full flex h-36 -mt-8 flex-col items-center justify-center rounded-3xl border border-slate-700/60 bg-slate-900/80 shadow-[0_0_30px_rgba(0,0,0,0.3)] backdrop-blur-md text-center p-4 hover:border-slate-400/50 transition-all duration-500"
             data-aos="fade-up"
-            data-aos-delay={index * 100}
+            data-aos-delay={index * 200}
           >
             <div className="mb-3">{stat.icon}</div>
             <h3 className="text-4xl font-semibold text-white mb-1 tracking-wide">

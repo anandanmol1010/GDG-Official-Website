@@ -90,13 +90,8 @@ export default function About() {
 
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mt-20">
             <div className="order-2 lg:order-1" data-aos="fade-up" >
-              <p className="text-slate-300 text-left text-lg font-mono leading-relaxed">
-                Google Developer Groups (GDG) on Campus ABESEC is a vibrant student community
-                driven by curiosity, collaboration, and innovation. We bring together passionate
-                developers, designers, and problem-solvers to explore emerging technologies and
-                turn ideas into impactful projects. Through workshops, hackathons, and speaker
-                sessions, GDG ABESEC empowers students to learn, build, and grow in a supportive
-                ecosystem that bridges classroom learning with real-world experience.
+              <p className="text-slate-300 text-left text-lg  font-light font-mono leading-relaxed">
+                Google Developer Groups (GDG) on Campus ABESEC is a vibrant community driven by curiosity, collaboration, and innovation. We bring together passionate developers, designers, and problem-solvers to explore technologies and turn ideas into impactful projects. Through workshops, hackathons, and sessions, GDG ABESEC empowers students to learn, build, and grow in a supportive ecosystem bridging classroom learning with real-world experience.
               </p>
             </div>
 
@@ -105,7 +100,7 @@ export default function About() {
                 <CardBody className="relative rounded-2xl overflow-hidden border border-slate-700/50 bg-slate-900/40 backdrop-blur-sm hover:border-slate-400/50 transition-all duration-300">
                   <CardItem translateZ={100}>
                     <img
-                      src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=800&h=600&fit=crop"
+                      src="/about-img1.jpg"
                       alt="GDG Community"
                       className="w-full h-80 object-cover rounded-2xl"
                     />
