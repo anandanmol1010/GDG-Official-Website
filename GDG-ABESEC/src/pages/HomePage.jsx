@@ -5,8 +5,15 @@ import Footer from "../components/Footer";
 
 export default function HomePage() {
   return (
-    <div className="w-full  overflow-x-hidden">
-      <About /> 
-    </div>
+    <>
+      <div className="w-full  overflow-x-hidden">
+        <Home />
+        <About />
+        <WhatWeOffer />
+        <OrganisersAndActingGenerals />
+        <WhyJoinGDG />
+        <Footer />
+      </div>
+    </>
   );
 }
