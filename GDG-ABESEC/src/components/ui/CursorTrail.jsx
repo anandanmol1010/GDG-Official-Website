@@ -70,7 +70,7 @@ export default function CursorTrail() {
           filter: "drop-shadow(0px 6px 10px rgba(255, 215, 0, 0.5))",
         }}
       >
-        <div className="w-6 h-6 border-[2px] border-[#7db7ff] rounded-full" />
+        <div className="w-8 h-8 border-[2px] border-[#7db7ff] rounded-full" />
       </div>
 
       

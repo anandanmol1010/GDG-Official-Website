@@ -74,22 +74,22 @@ export default function About() {
 
   return (
     <>
-      <section id="about" className="min-h-screen bg-black py-20 px-6 md:px-12 lg:px-20 relative overflow-hidden">
+      <section id="about" className="min-h-screen bg-[#0a0a0a] py-20 px-6 md:px-12 lg:px-20 relative overflow-hidden">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-16">
-            <h2 className="text-6xl md:text-7xl font-bold text-slate-300 mb-4">
+            <h2 className="text-6xl md:text-7xl font-bold text-[#e5e5e5] mb-4" style={{ fontFamily: "'Space Grotesk', sans-serif" }}>
               About{" "}
-              <span className="text-transparent bg-clip-text bg-linear-to-r from-green-300 to-blue-400">
+              <span className="text-[#4285F4]">
                 Us
               </span>
             </h2>
 
-            <div className="h-[3px] w-64 rounded-full mx-auto bg-linear-to-r from-transparent via-blue-500 to-transparent"></div>
+            <div className="h-[2px] w-64 rounded-full mx-auto bg-[#4285F4]"></div>
           </div>
 
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mt-20">
             <div className="order-2 lg:order-1" data-aos="fade-up">
-              <p className="text-slate-300 text-left text-lg  font-light font-sans leading-relaxed">
+              <p className="text-[#a3a3a3] text-left text-lg font-normal leading-relaxed" style={{ fontFamily: "'Inter', sans-serif" }}>
                 Google Developer Groups (GDG) on Campus ABESEC is a vibrant
                 community driven by curiosity, collaboration, and innovation. We
                 bring together passionate developers, designers, and
@@ -103,7 +103,7 @@ export default function About() {
 
             <div className="order-1 lg:order-2" data-aos="fade-up">
               <CardContainer>
-                <CardBody className="relative rounded-2xl overflow-hidden border border-slate-700/50 bg-slate-900/40 backdrop-blur-sm hover:border-slate-400/50 transition-all duration-300">
+                <CardBody className="relative rounded-2xl overflow-hidden border border-[#2a2a2a] bg-[#151515] backdrop-blur-sm  transition-all duration-300">
                   <CardItem translateZ={100}>
                     <img
                       src="/about-img1.jpg"
