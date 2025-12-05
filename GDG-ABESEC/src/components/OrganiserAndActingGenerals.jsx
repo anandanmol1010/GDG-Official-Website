@@ -83,22 +83,19 @@ function OrganisersAndActingGenerals() {
   const [activeIndex, setActiveIndex] = useState(0);
 
   return (
-    <div className="bg-black text-white flex flex-col items-center justify-center py-12 px-4">
+    <div className="bg-[#0a0a0a] text-white flex flex-col items-center justify-center py-12 px-4">
       <div className="text-center mt-16 mb-10">
-  <h2 className="text-6xl md:text-7xl font-bold text-slate-300 mb-4">
-    Meet the Leadership{" "}
-    <span className="text-transparent bg-clip-text bg-linear-to-r from-green-400 to-red-500">
-      Board
-    </span>
-  </h2>
+        <h2 className="text-6xl md:text-7xl font-bold text-[#e5e5e5] mb-4" style={{ fontFamily: "'Space Grotesk', sans-serif" }}>
+          Meet the Leadership{" "}
+          <span className="text-[#4285F4]">
+            Board
+          </span>
+        </h2>
 
-  <div
-    className="h-[3px] w-[400px]  rounded-full  mx-auto bg-linear-to-r from-transparent via-blue-500 to-transparent"
-  ></div>
-</div>
+        <div className="h-[2px] w-[400px] rounded-full mx-auto bg-[#4285F4]"></div>
+      </div>
 
       <div className="w-full max-w-7xl px-4">
-        {/* Animated Testimonials Slider */}
         <div className="animated-testimonials-container">
           <AnimatedTestimonials
             testimonials={testimonials}
