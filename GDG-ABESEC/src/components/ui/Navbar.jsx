@@ -1,5 +1,6 @@
 "use client";
 import React, { useRef, useState } from "react";
+import { Link } from "react-router-dom";
 import {
   IconHome,
   IconInfoCircle,
@@ -16,6 +17,8 @@ import {
   useSpring,
   useTransform,
 } from "framer-motion";
+
+const MotionLink = motion(Link);
 
 function cn(...classes) {
   return classes.filter(Boolean).join(" ");
@@ -81,9 +84,9 @@ const FloatingDockMobile = ({ items, className }) => {
           >
             <div className="flex flex-col">
               {items.map((item, idx) => (
-                <motion.a
+                <MotionLink
                   key={item.title}
-                  href={item.href}
+                  to={item.href}
                   initial={{ opacity: 0, x: -20 }}
                   animate={{ opacity: 1, x: 0 }}
                   exit={{ opacity: 0, x: -20 }}
@@ -95,7 +98,7 @@ const FloatingDockMobile = ({ items, className }) => {
                   <span className="text-sm font-medium text-neutral-700 dark:text-neutral-200">
                     {item.title}
                   </span>
-                </motion.a>
+                </MotionLink>
               ))}
             </div>
           </motion.div>
@@ -171,7 +174,7 @@ function IconContainer({ mouseX, title, icon, href }) {
   const [hovered, setHovered] = useState(false);
 
   return (
-    <a href={href}>
+    <Link to={href}>
       <motion.div
         ref={ref}
         style={{ width, height }}
@@ -198,7 +201,7 @@ function IconContainer({ mouseX, title, icon, href }) {
           {icon}
         </motion.div>
       </motion.div>
-    </a>
+    </Link>
   );
 }
 
