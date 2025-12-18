@@ -9,6 +9,7 @@ import {
   IconHelpCircle,
   IconMenu2,
   IconX,
+  IconAward, // ✅ NEW ICON
 } from "@tabler/icons-react";
 import {
   AnimatePresence,
@@ -112,6 +113,7 @@ const FloatingDockMobile = ({ items, className }) => {
 
 const FloatingDockDesktop = ({ items, className }) => {
   let mouseX = useMotionValue(Infinity);
+
   return (
     <motion.div
       onMouseMove={(e) => mouseX.set(e.pageX)}
@@ -188,7 +190,7 @@ function IconContainer({ mouseX, title, icon, href }) {
               initial={{ opacity: 0, y: 10, x: "-50%" }}
               animate={{ opacity: 1, y: 0, x: "-50%" }}
               exit={{ opacity: 0, y: 2, x: "-50%" }}
-              className="absolute -top-8 left-1/2 w-fit rounded-md border border-white/20 bg-black/80 backdrop-blur-md px-2 py-0.5 text-xs whitespace-pre text-white shadow-md"
+              className="absolute -top-8 left-1/2 w-fit rounded-md border border-white/20 bg-black/80 backdrop-blur-md px-2 py-0.5 text-xs text-white shadow-md"
             >
               {title}
             </motion.div>
@@ -223,6 +225,12 @@ export default function Navbar() {
       title: "Events",
       icon: <IconCalendarEvent className="w-full h-full text-pink-400" />,
       href: "/events",
+    },
+    {
+      title: "Achievements", 
+      
+      icon: <IconAward className="w-full h-full text-purple-400" />,
+      href: "/achievements",
     },
     {
       title: "Team",

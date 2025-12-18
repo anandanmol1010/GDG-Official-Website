@@ -1,6 +1,8 @@
 import { useState, useRef, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Github, Linkedin, ExternalLink } from 'lucide-react';
+import CursorTrail from '../components/ui/CursorTrail';
+import Navbar from '../components/ui/Navbar';
 
 const mockProjects = [
   {
@@ -101,6 +103,7 @@ const Showcase = () => {
 
   return (
     <div className="min-h-screen bg-[#0a0a0a] text-white overflow-x-hidden">
+      <Navbar />
       <style>
         {`
           @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');

@@ -26,7 +26,7 @@ function App() {
               <Route path="/" element={<HomePage />} />
               <Route path="/events" element={<EventsPage />} />
               <Route path="/team" element={<TeamPage />} />
-              <Route path="/achievement" element={<AchivementPage />} />
+              <Route path="/achievements" element={<AchivementPage />} />
             </Routes>
           </div>
         </>
