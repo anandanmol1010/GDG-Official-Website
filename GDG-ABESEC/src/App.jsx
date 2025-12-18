@@ -7,6 +7,7 @@ import TeamPage from "./pages/TeamPage";
 import AchivementPage from "./pages/AchivementPage";
 import ScrollToHash from "./components/ScrollToHash";
 import Loader from "./components/Loader";
+import ScrollToTop from "./components/ScrollToTop";
 
 function App() {
   const [loading, setLoading] = useState(true);
@@ -17,6 +18,7 @@ function App() {
 
       {!loading && (
         <>
+        <ScrollToTop />
           <ScrollToHash />
 
           <div className="App">
