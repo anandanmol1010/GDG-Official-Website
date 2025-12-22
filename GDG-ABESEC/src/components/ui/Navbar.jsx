@@ -1,3 +1,4 @@
+// components/ui/Navbar.jsx
 "use client";
 import React, { useRef, useState } from "react";
 import { Link } from "react-router-dom";
@@ -9,7 +10,7 @@ import {
   IconHelpCircle,
   IconMenu2,
   IconX,
-  IconAward, // ✅ NEW ICON
+  IconAward,
 } from "@tabler/icons-react";
 import {
   AnimatePresence,
@@ -42,7 +43,8 @@ const FloatingDockMobile = ({ items, className }) => {
   const [open, setOpen] = useState(false);
 
   return (
-    <div className={cn("fixed top-4 right-4 z-50 block lg:hidden", className)}>
+    // Changed z-50 to z-[100] for mobile menu
+    <div className={cn("fixed top-4 right-4 z-[100] block lg:hidden", className)}>
       {/* Hamburger Button */}
       <button
         onClick={() => setOpen(!open)}
@@ -115,11 +117,12 @@ const FloatingDockDesktop = ({ items, className }) => {
   let mouseX = useMotionValue(Infinity);
 
   return (
+    // Changed z-50 to z-[100] for desktop navbar
     <motion.div
       onMouseMove={(e) => mouseX.set(e.pageX)}
       onMouseLeave={() => mouseX.set(Infinity)}
       className={cn(
-        "fixed mx-auto top-14 left-1/2 z-50 -translate-x-1/2 transform h-16 items-end gap-4 rounded-2xl px-4 pb-3 hidden lg:flex shadow-2xl backdrop-blur-md bg-white/5 border border-white/10",
+        "fixed mx-auto top-14 left-1/2 z-[100] -translate-x-1/2 transform h-16 items-end gap-4 rounded-2xl px-4 pb-3 hidden lg:flex shadow-2xl backdrop-blur-md bg-white/5 border border-white/10",
         className
       )}
       style={{

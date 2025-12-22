@@ -1,3 +1,4 @@
+// pages/Showcase.jsx
 import { useState, useRef, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Github, Linkedin, ExternalLink } from 'lucide-react';
@@ -103,6 +104,7 @@ const Showcase = () => {
 
   return (
     <div className="min-h-screen bg-[#0a0a0a] text-white overflow-x-hidden">
+      <CursorTrail />
       <Navbar />
       <style>
         {`
@@ -172,13 +174,13 @@ const Showcase = () => {
         </div>
       </motion.section>
 
-      {/* Tabs */}
+      {/* Tabs - Updated z-index */}
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
         transition={{ duration: 0.6 }}
-        className="sticky top-0 z-50 bg-[#0a0a0a]/95 backdrop-blur-sm py-6 border-b border-[#1a1a1a]"
+        className="sticky top-0 z-[90] bg-[#0a0a0a]/95 backdrop-blur-sm py-6 border-b border-[#1a1a1a]"
       >
         <div className="container mx-auto px-4 flex justify-center gap-4 flex-wrap">
           <button
@@ -272,7 +274,7 @@ const ProjectCard = ({ project, index, total }) => {
       transition={{ duration: 0.6, ease: "easeOut" }}
       className="sticky"
       style={{
-        top: `${120 + index * 40}px`,
+        top: `${150 + index * 30}px`,
         zIndex: total - index,
       }}
     >
@@ -399,6 +401,7 @@ const AchievementsSection = ({ achievements }) => {
 const AchievementCard = ({ achievement, index, total }) => {
   const cardRef = useRef(null);
   const [isVisible, setIsVisible] = useState(false);
+  const [isSticky, setIsSticky] = useState(false);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -423,6 +426,22 @@ const AchievementCard = ({ achievement, index, total }) => {
     };
   }, []);
 
+  useEffect(() => {
+    const handleScroll = () => {
+      if (cardRef.current) {
+        const rect = cardRef.current.getBoundingClientRect();
+        const windowHeight = window.innerHeight;
+        const centerY = windowHeight / 2;
+        
+        // Check if card is near center of viewport
+        setIsSticky(rect.top <= centerY && rect.bottom >= centerY);
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
   return (
     <motion.div
       ref={cardRef}
@@ -431,12 +450,14 @@ const AchievementCard = ({ achievement, index, total }) => {
       transition={{ duration: 0.6, ease: "easeOut" }}
       className="sticky"
       style={{
-        top: `${120 + index * 40}px`,
+        top: `${150 + index * 30}px`,
         zIndex: total - index,
       }}
     >
       <motion.div
-        whileHover={{ scale: 1.01 }}
+        animate={{
+          scale: isSticky ? 1.02 : 1,
+        }}
         transition={{ duration: 0.3 }}
         className="bg-[#1a1a1a] rounded-2xl overflow-hidden shadow-2xl border border-[#2a2a2a] hover:border-[#3a3a3a] transition-all duration-300"
       >
