@@ -186,14 +186,12 @@ const Showcase = () => {
         `}
       </style>
 
-      {/* Hero Section */}
       <motion.section
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 1 }}
         className="relative min-h-screen flex items-center justify-center px-4 overflow-hidden"
       >
-        {/* Animated background lines */}
         <div className="absolute inset-0 opacity-10">
           <div className="absolute top-1/4 left-0 w-full h-px bg-white"></div>
           <div className="absolute top-1/2 left-0 w-full h-px bg-white"></div>
@@ -267,7 +265,6 @@ const Showcase = () => {
         </div>
       </motion.section>
 
-      {/* Tabs */}
       <motion.div
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
@@ -315,7 +312,6 @@ const Showcase = () => {
         </div>
       </motion.div>
 
-      {/* Content */}
       <AnimatePresence mode="wait">
         {activeTab === 'projects' ? (
           <ProjectsSection key="projects" projects={mockProjects} />
@@ -365,14 +361,12 @@ const ProjectCard = ({ project, index }) => {
         style={{ fontFamily: 'Poppins, sans-serif' }}
       >
         <div className="grid lg:grid-cols-2 gap-12 items-start">
-          {/* Mobile: Project Number at Top */}
           <div className="lg:hidden flex items-center gap-4 mb-6">
             <span className="text-6xl font-black text-white/10">0{project.id}</span>
             <div className="flex-1 h-px bg-white/20"></div>
             <span className="text-sm font-semibold tracking-wider text-gray-500">{project.year}</span>
           </div>
 
-          {/* Content Side - Order 1 on mobile, alternating on desktop */}
           <div className={`flex flex-col justify-between order-1 ${index % 2 === 0 ? 'lg:order-2' : 'lg:order-1'}`}>
             <motion.div
               initial={{ opacity: 0 }}
@@ -380,7 +374,6 @@ const ProjectCard = ({ project, index }) => {
               viewport={{ once: true }}
               transition={{ delay: 0.3 }}
             >
-              {/* Desktop: Project Number */}
               <div className="hidden lg:flex items-center gap-4 mb-6">
                 <span className="text-6xl font-black text-white/10">0{project.id}</span>
                 <div className="flex-1 h-px bg-white/20"></div>
@@ -391,7 +384,6 @@ const ProjectCard = ({ project, index }) => {
                 {project.title}
               </h3>
 
-              {/* Creator Info with Image */}
               <div className="flex items-center gap-3 mb-6">
                 <img
                   src={project.owner_image}
@@ -408,7 +400,6 @@ const ProjectCard = ({ project, index }) => {
                 {project.description}
               </p>
 
-              {/* Tech Stack */}
               <div className="mb-10">
                 <p className="text-xs font-semibold tracking-wider text-gray-500 mb-4">TECH STACK</p>
                 <div className="flex flex-wrap gap-3">
@@ -423,7 +414,6 @@ const ProjectCard = ({ project, index }) => {
                 </div>
               </div>
 
-              {/* Links */}
               <div className="flex flex-wrap gap-4">
                 <motion.a
                   href={project.deployed_url}
@@ -464,11 +454,9 @@ const ProjectCard = ({ project, index }) => {
             </motion.div>
           </div>
 
-          {/* Image Side - Order 2 on mobile, alternating on desktop */}
           <motion.div 
             className={`relative h-[450px] order-2 ${index % 2 === 0 ? 'lg:order-1' : 'lg:order-2'}`}
           >
-            {/* Background Cover Image */}
             <motion.a
               href={project.deployed_url}
               target="_blank"
@@ -502,15 +490,13 @@ const ProjectCard = ({ project, index }) => {
                 </motion.div>
               </motion.div>
 
-              {/* Status Badge */}
               <div className="absolute top-6 right-6 bg-white text-black px-4 py-2 text-xs font-bold tracking-wider">
                 {project.status}
               </div>
             </motion.a>
 
-            {/* Floating Profile Image - Clickable for enlargement */}
             <motion.div
-              className="absolute top-3 left-3 w-25 h-25 overflow-hidden bg-zinc-900 border-4 border-black rounded-[50%] z-10 shadow-2xl cursor-pointer"
+              className="absolute top-3 left-3 w-25 h-25 overflow-hidden bg-zinc-900 border-4 border-black rounded-[50%]  shadow-2xl cursor-pointer"
               whileHover={{ scale: 1.05, y: -5 }}
               transition={{ duration: 0.3 }}
               onClick={() => setIsImageEnlarged(true)}
@@ -525,7 +511,6 @@ const ProjectCard = ({ project, index }) => {
         </div>
       </motion.div>
 
-      {/* Enlarged Image Modal */}
       <AnimatePresence>
         {isImageEnlarged && (
           <motion.div
@@ -608,9 +593,7 @@ const AchievementCard = ({ achievement, index }) => {
         style={{ fontFamily: 'Poppins, sans-serif' }}
       >
         <div className="relative h-full bg-zinc-950 overflow-hidden flex flex-col">
-          {/* Image Section - Fixed height */}
           <div className="relative h-64 overflow-hidden">
-            {/* Background Achievement Cover */}
             <div 
               className="relative w-full h-full overflow-hidden cursor-pointer"
               onMouseEnter={() => setImageHovered(true)}
@@ -624,7 +607,6 @@ const AchievementCard = ({ achievement, index }) => {
                 transition={{ duration: 0.6 }}
               />
               
-              {/* Overlay on hover */}
               <motion.div
                 initial={{ opacity: 0 }}
                 animate={{ opacity: imageHovered ? 1 : 0 }}
@@ -637,15 +619,13 @@ const AchievementCard = ({ achievement, index }) => {
                 </div>
               </motion.div>
 
-            {/* Category Badge */}
             <div className="absolute top-4 right-4 bg-white text-black px-3 py-1.5 text-xs font-bold tracking-widest">
               {achievement.category.toUpperCase()}
             </div>
           </div>
 
-          {/* Floating Profile Image - Top left with higher z-index */}
           <motion.div
-            className="absolute top-3 left-3 w-25 h-25 overflow-hidden bg-zinc-900 border-4 border-black rounded-[50%] z-10 shadow-2xl cursor-pointer"
+            className="absolute top-3 left-3 w-25 h-25 overflow-hidden bg-zinc-900 border-4 border-black rounded-[50%] shadow-2xl cursor-pointer"
             whileHover={{ scale: 1.05, y: -5 }}
             transition={{ duration: 0.3 }}
               onClick={() => setIsImageEnlarged(true)}
@@ -660,7 +640,6 @@ const AchievementCard = ({ achievement, index }) => {
         </div>
 
 
-        {/* Content Section */}
         <div className="p-8 bg-zinc-950 flex-1 flex flex-col">
           <h3 className="text-2xl font-black mb-2 tracking-tight">
             {achievement.title}
@@ -669,7 +648,6 @@ const AchievementCard = ({ achievement, index }) => {
             {achievement.subtitle}
           </p>
 
-          {/* Achiever Info with Image */}
           <div className="flex items-center gap-3 mb-4">
             <img
               src={achievement.achiever_image}

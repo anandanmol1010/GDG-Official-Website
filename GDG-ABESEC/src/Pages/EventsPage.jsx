@@ -5,6 +5,7 @@ import EventHero from "../components/Eventhero";
 import Timeline from "../components/Timeline";
 import DomeGallery from "../components/ui/DomeGalery";
 import CursorTrail from "../components/ui/CursorTrail";
+import ScrollProgressBar from "../components/ScrollProgressBar";
 
 export default function HomePage() {
   const [showPast, setShowPast] = useState(true); 
@@ -12,6 +13,7 @@ export default function HomePage() {
   return (
     <div className="w-full overflow-x-hidden">
       <CursorTrail />
+      <ScrollProgressBar />
       <EventHero showPast={showPast} setShowPast={setShowPast} />
       {showPast && <Timeline />}
       <div className="h-screen">
