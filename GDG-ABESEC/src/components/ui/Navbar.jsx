@@ -1,3 +1,4 @@
+// components/ui/Navbar.jsx
 "use client";
 import React, { useRef, useState } from "react";
 import { Link } from "react-router-dom";
@@ -9,6 +10,7 @@ import {
   IconHelpCircle,
   IconMenu2,
   IconX,
+  IconAward,
 } from "@tabler/icons-react";
 import {
   AnimatePresence,
@@ -41,7 +43,8 @@ const FloatingDockMobile = ({ items, className }) => {
   const [open, setOpen] = useState(false);
 
   return (
-    <div className={cn("fixed top-4 right-4 z-50 block lg:hidden", className)}>
+    // Changed z-50 to z-[100] for mobile menu
+    <div className={cn("fixed top-4 right-4 z-[100] block lg:hidden", className)}>
       {/* Hamburger Button */}
       <button
         onClick={() => setOpen(!open)}
@@ -112,12 +115,14 @@ const FloatingDockMobile = ({ items, className }) => {
 
 const FloatingDockDesktop = ({ items, className }) => {
   let mouseX = useMotionValue(Infinity);
+
   return (
+    // Changed z-50 to z-[100] for desktop navbar
     <motion.div
       onMouseMove={(e) => mouseX.set(e.pageX)}
       onMouseLeave={() => mouseX.set(Infinity)}
       className={cn(
-        "fixed mx-auto top-14 left-1/2 z-50 -translate-x-1/2 transform h-16 items-end gap-4 rounded-2xl px-4 pb-3 hidden lg:flex shadow-2xl backdrop-blur-md bg-white/5 border border-white/10",
+        "fixed mx-auto top-14 left-1/2 z-[100] -translate-x-1/2 transform h-16 items-end gap-4 rounded-2xl px-4 pb-3 hidden lg:flex shadow-2xl backdrop-blur-md bg-white/5 border border-white/10",
         className
       )}
       style={{
@@ -188,7 +193,7 @@ function IconContainer({ mouseX, title, icon, href }) {
               initial={{ opacity: 0, y: 10, x: "-50%" }}
               animate={{ opacity: 1, y: 0, x: "-50%" }}
               exit={{ opacity: 0, y: 2, x: "-50%" }}
-              className="absolute -top-8 left-1/2 w-fit rounded-md border border-white/20 bg-black/80 backdrop-blur-md px-2 py-0.5 text-xs whitespace-pre text-white shadow-md"
+              className="absolute -top-8 left-1/2 w-fit rounded-md border border-white/20 bg-black/80 backdrop-blur-md px-2 py-0.5 text-xs text-white shadow-md"
             >
               {title}
             </motion.div>
@@ -228,6 +233,11 @@ export default function Navbar() {
       title: "Team",
       icon: <IconUsers className="w-full h-full text-orange-400" />,
       href: "/team",
+    },
+    {
+      title: "Showcase", 
+      icon: <IconAward className="w-full h-full text-purple-400" />,
+      href: "/achievements",
     },
     {
       title: "Help",

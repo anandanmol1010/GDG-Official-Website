@@ -1,6 +1,7 @@
 /* @import url("https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&display=swap"); */
 @import 'tailwindcss';
-@plugin 'lightswind/plugin';
+/* @plugin 'lightswind/plugin'; */
+@plugin "tailwindcss/plugin";
 html, body {
   overflow-x: hidden;
   font-family: sans-serif;
@@ -27,4 +28,19 @@ html, body {
 .backface-hidden {
   backface-visibility: hidden;
   -webkit-backface-visibility: hidden;
+}
+
+
+body {
+  /* cursor: none; */
+}
+
+button,
+a,
+input,
+textarea,
+select,
+[role="button"],
+.cursor-pointer {
+  cursor: pointer;
 }

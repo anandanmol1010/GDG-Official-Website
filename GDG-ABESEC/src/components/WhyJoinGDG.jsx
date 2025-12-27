@@ -1,6 +1,6 @@
 "use client";
 
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Tilt from "react-parallax-tilt";
 import {
   Code,
@@ -57,116 +57,144 @@ const cardData = [
 ];
 
 const WhyJoinGDG = () => {
+  const [isMobile, setIsMobile] = useState(false);
+  const [showMore, setShowMore] = useState(false);
+
+  useEffect(() => {
+    const handleResize = () => setIsMobile(window.innerWidth < 640);
+    handleResize();
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
   return (
     <section className="w-full py-20 bg-[#0a0a0a] text-white">
-      <div className="max-w-7xl mx-auto px-5">
-        <h2
-          className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-[#e5e5e5] mb-3 text-center"
-          style={{ fontFamily: "'Space Grotesk', sans-serif" }}
-        >
+      <div className="max-w-7xl mx-auto px-6 sm:px-8 md:px-5">
+        <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-center mb-3 text-[#e5e5e5]">
           Why <span className="text-[#4285F4]">Join GDG?</span>
         </h2>
 
-        <p
-          className="text-center text-[#737373] text-base sm:text-lg mb-14"
-          style={{ fontFamily: "'Inter', sans-serif" }}
-        >
+        <p className="text-center text-[#737373] mb-14">
           Explore what makes our community a powerful space for learning and
           growth.
         </p>
 
-        <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-8 items-stretch">
-          {cardData.map((card, index) => (
-            <Tilt
-              key={index}
-              glareEnable={false}
-              tiltMaxAngleX={10}
-              tiltMaxAngleY={10}
-              scale={1.02}
-              transitionSpeed={2500}
-            >
+        <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-8">
+          {cardData.map((card, index) => {
+            const isExtraMobile = isMobile && index >= 3;
+
+            if (isExtraMobile && !showMore) {
+              return (
+                <div key={index} className="hidden">
+                </div>
+              );
+            }
+
+            return (
               <div
-                className="group relative p-7 h-full min-h-[350px] flex flex-col rounded-2xl bg-[#151515] border transition-all duration-700 hover:scale-[1.05] hover:-translate-y-2 overflow-hidden"
+                key={index}
+                className={`${
+                  isExtraMobile
+                    ? "opacity-0 translate-y-10 animate-card-in"
+                    : ""
+                }`}
                 style={{
-                  borderColor: card.themeHex,
-                  boxShadow: `0 4px 24px ${card.themeHex}20`,
+                  animationDelay:
+                    isMobile && showMore && index >= 3
+                      ? `${(index - 3) * 150}ms`
+                      : "0ms",
                 }}
               >
-                {/* Hover Glow Layer */}
-                <div
-                  className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-all duration-700 rounded-2xl pointer-events-none"
-                  style={{
-                    boxShadow: `
-                      0 0 80px ${card.themeHex}80,
-                      0 0 120px ${card.themeHex}60,
-                      0 0 160px ${card.themeHex}40,
-                      inset 0 0 80px ${card.themeHex}30
-                    `,
-                    background: `radial-gradient(circle at 50% 50%, ${card.themeHex}20, transparent 70%)`,
-                  }}
-                ></div>
-
-                <div className="relative z-10 flex flex-col flex-grow">
-                  {/* Icon */}
+                <Tilt
+                  glareEnable={false}
+                  tiltMaxAngleX={10}
+                  tiltMaxAngleY={10}
+                  scale={1.02}
+                  transitionSpeed={2500}
+                >
                   <div
-                    className="p-4 rounded-xl inline-block mb-5 transition-all duration-500 group-hover:scale-110 group-hover:rotate-3"
+                    className="group relative p-7 min-h-[350px] flex flex-col rounded-2xl bg-[#151515] border transition-all duration-700 hover:scale-[1.05] hover:-translate-y-2 overflow-hidden"
                     style={{
-                      backgroundColor: `${card.themeHex}15`,
-                      border: `2px solid ${card.themeHex}80`,
-                      color: card.themeHex,
-                      boxShadow: `0 4px 16px ${card.themeHex}40`,
+                      borderColor: card.themeHex,
+                      boxShadow: `0 4px 24px ${card.themeHex}20`,
                     }}
                   >
-                    {card.icon}
-                  </div>
+                    <div
+                      className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-all duration-700 pointer-events-none"
+                      style={{
+                        background: `radial-gradient(circle at center, ${card.themeHex}20, transparent 70%)`,
+                      }}
+                    />
 
-                  {/* Title */}
-                  <h3
-                    className="text-2xl sm:text-2xl font-bold mb-3 text-[#e5e5e5]"
-                    style={{ fontFamily: "'Space Grotesk', sans-serif" }}
-                  >
-                    {card.title}
-                  </h3>
-
-                  {/* Description */}
-                  <p
-                    className="text-[#a3a3a3] text-sm leading-relaxed mb-5"
-                    style={{ fontFamily: "'Inter', sans-serif" }}
-                  >
-                    {card.desc}
-                  </p>
-
-                  {/* Tags */}
-                  <div className="flex flex-wrap gap-2 mt-auto">
-                    {card.tags.map((tag, i) => (
-                      <span
-                        key={i}
-                        className="text-xs px-4 py-2 rounded-full transition-all duration-500 backdrop-blur-sm"
+                    <div className="relative z-10 flex flex-col flex-grow">
+                      <div
+                        className="p-4 rounded-xl inline-block mb-5 transition-all duration-500 group-hover:scale-110"
                         style={{
-                          backgroundColor: "transparent",
-                          border: `1px solid ${card.themeHex}`,
+                          backgroundColor: `${card.themeHex}15`,
+                          border: `2px solid ${card.themeHex}80`,
                           color: card.themeHex,
-                          fontFamily: "'Inter', sans-serif",
                         }}
                       >
-                        {tag}
-                      </span>
-                    ))}
-                  </div>
-                </div>
+                        {card.icon}
+                      </div>
 
-                {/* Outer Hover Border */}
-                <div
-                  className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-all duration-700 rounded-2xl pointer-events-none"
-                  style={{
-                    border: `2px solid ${card.themeHex}60`,
-                  }}
-                ></div>
+                      <h3 className="text-2xl font-bold mb-3">
+                        {card.title}
+                      </h3>
+
+                      <p className="text-[#a3a3a3] text-sm mb-5">
+                        {card.desc}
+                      </p>
+
+                      <div className="flex flex-wrap gap-2 mt-auto">
+                        {card.tags.map((tag, i) => (
+                          <span
+                            key={i}
+                            className="text-xs px-4 py-2 rounded-full"
+                            style={{
+                              border: `1px solid ${card.themeHex}`,
+                              color: card.themeHex,
+                            }}
+                          >
+                            {tag}
+                          </span>
+                        ))}
+                      </div>
+                    </div>
+                  </div>
+                </Tilt>
               </div>
-            </Tilt>
-          ))}
+            );
+          })}
         </div>
+
+        {isMobile && (
+          <div className="flex justify-center mt-14">
+            <button
+              onClick={() => setShowMore(!showMore)}
+              className="px-8 py-3 rounded-full text-sm font-medium border border-[#4285F4] text-[#4285F4] hover:bg-[#4285F4]/10"
+            >
+              {showMore ? "Show Less" : "Show More"}
+            </button>
+          </div>
+        )}
       </div>
+
+      <style jsx>{`
+        @keyframes cardIn {
+          from {
+            opacity: 0;
+            transform: translateY(24px);
+          }
+          to {
+            opacity: 1;
+            transform: translateY(0);
+          }
+        }
+        .animate-card-in {
+          animation: cardIn 0.6s ease-out forwards;
+        }
+      `}</style>
     </section>
   );
 };
