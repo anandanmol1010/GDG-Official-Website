@@ -64,7 +64,6 @@ const mockProjects = [
     status: 'Beta'
   },
 ];
-
 const mockAchievements = [
   {
     id: 1,
