@@ -9,32 +9,31 @@ import CursorTrail from '../components/ui/CursorTrail';
 const mockProjects = [
   {
     id: 1,
-    title: 'AI Task Manager',
-    description: 'An intelligent task management system with AI-powered suggestions and priority optimization using advanced algorithms.',
-    thumbnail_url: 'https://images.pexels.com/photos/3861959/pexels-photo-3861959.jpeg?auto=compress&cs=tinysrgb&w=800',
-    owner_image: 'https://images.pexels.com/photos/2379004/pexels-photo-2379004.jpeg?auto=compress&cs=tinysrgb&w=400',
-    owner_name: 'John Doe',
-    github_url: 'https://github.com/johndoe',
-    linkedin_url: 'https://linkedin.com/in/johndoe',
-    deployed_url: 'https://aitaskmanager.com',
-    tech_stack: ['React', 'Node.js', 'OpenAI', 'MongoDB'],
-    year: '2024',
-    status: 'Production'
+    title: 'AceStudy',
+    description: 'Acestudy is a smart learning platform offering notes, previous year question papers, discussion forums, and a faculty dashboard, enabling organized study, collaboration, and effective academic management.',
+    thumbnail_url: '/projects-imgs/priyatosh-project.png',
+    owner_image: '/projects-imgs/priyatosh.jpg',
+    owner_name: 'Priyatosh Kumar',
+    github_url: 'https://github.com/PriyatoshKumarShahi/Study-Library',
+    linkedin_url: 'https://www.linkedin.com/in/priyatoshkumarshahi/',
+    deployed_url: 'https://acestudy.onrender.com/',
+    tech_stack: ['React JS', 'Express', 'Web Sockets', 'Node JS', 'Mongo DB', 'JWT'],
+   
   },
   {
     id: 2,
-    title: 'E-Commerce Platform',
-    description: 'Full-stack e-commerce solution with seamless payment integration and real-time inventory management system.',
-    thumbnail_url: 'https://images.pexels.com/photos/230544/pexels-photo-230544.jpeg?auto=compress&cs=tinysrgb&w=800',
-    owner_image: 'https://images.pexels.com/photos/733872/pexels-photo-733872.jpeg?auto=compress&cs=tinysrgb&w=400',
-    owner_name: 'Jane Smith',
-    github_url: 'https://github.com/janesmith',
-    linkedin_url: 'https://linkedin.com/in/janesmith',
-    deployed_url: 'https://myshop.com',
-    tech_stack: ['Next.js', 'TypeScript', 'Stripe', 'PostgreSQL'],
-    year: '2024',
-    status: 'Production'
+    title: 'Smart Resume Reviewer',
+    description: 'Smart Resume Reviewer is a web-based application that analyzes resumes and provides structured feedback along with an improved version of the resume. It evaluates content, formatting, and skills presentation, highlighting areas of improvement to help users create clearer and more effective resumes.',
+    thumbnail_url: '/projects-imgs/riddhima-project.jpg',
+    owner_image: '/projects-imgs/riddhima.jpg',
+    owner_name: 'Riddhima Agarwal',
+    github_url: 'https://github.com/RiddhimaAgarwal28/Smart_Resume_Reviewer_Project',
+    linkedin_url: 'https://www.linkedin.com/in/riddhimaagarwalbly/',
+    deployed_url: 'https://smart-resume-reviewer-project.onrender.com',
+    tech_stack: ['HTML', 'CSS', 'JavaScript', 'Python', 'Flask', 'Flask-CORS'],
+   
   },
+  
   {
     id: 3,
     title: 'Weather Forecast App',
@@ -46,8 +45,7 @@ const mockProjects = [
     linkedin_url: 'https://linkedin.com/in/mikejohnson',
     deployed_url: 'https://weatherapp.com',
     tech_stack: ['Vue.js', 'Express', 'Weather API', 'Redis'],
-    year: '2023',
-    status: 'Active'
+  
   },
   {
     id: 4,
@@ -60,24 +58,23 @@ const mockProjects = [
     linkedin_url: 'https://linkedin.com/in/sarahwilliams',
     deployed_url: 'https://socialdash.com',
     tech_stack: ['React', 'Firebase', 'Chart.js', 'Tailwind'],
-    year: '2024',
-    status: 'Beta'
+   
   },
 ];
 const mockAchievements = [
   {
     id: 1,
-    title: 'Google Code Jam 2024',
-    subtitle: 'Top 100 Worldwide',
-    description: 'Secured top 100 rank in Google Code Jam 2024 competing against 30,000+ participants worldwide in intense competition.',
-    image_url: 'https://images.pexels.com/photos/1496192/pexels-photo-1496192.jpeg?auto=compress&cs=tinysrgb&w=800',
-    achiever_image: 'https://images.pexels.com/photos/614810/pexels-photo-614810.jpeg?auto=compress&cs=tinysrgb&w=400',
-    achiever_name: 'Alex Chen',
-    github_url: 'https://github.com/alexchen',
-    linkedin_url: 'https://linkedin.com/in/alexchen',
+    title: 'Clash of Coders',
+    subtitle: 'Winner of Clash of Coders 2025',
+    description: 'Secured first place in Clash of Coders 2025, a prestigious competitive programming contest, by demonstrating exceptional problem-solving skills and algorithmic expertise.',
+    image_url: '/projects-imgs/uttkarsh-achievement.jpeg',
+    achiever_image: '/projects-imgs/uttkarsh.jpg',
+    achiever_name: 'Utkarsh Agarwal',
+    github_url: 'https://github.com/Utkarsh-cod',
+    linkedin_url: 'https://www.linkedin.com/in/utkarsh-agarwal-8b0342362/',
     category: 'Competitive Programming',
-    achievement_date: '2024-05-15',
-    rank: '#87'
+    achievement_date: '12-01-2025',
+    rank: 'Winner'
   },
   {
     id: 2,
@@ -376,7 +373,6 @@ const ProjectCard = ({ project, index }) => {
               <div className="hidden lg:flex items-center gap-4 mb-6">
                 <span className="text-6xl font-black text-white/10">0{project.id}</span>
                 <div className="flex-1 h-px bg-white/20"></div>
-                <span className="text-sm font-semibold tracking-wider text-gray-500">{project.year}</span>
               </div>
 
               <h3 className="text-4xl md:text-5xl font-black mb-4 tracking-tight">
@@ -484,14 +480,12 @@ const ProjectCard = ({ project, index }) => {
                   transition={{ duration: 0.3 }}
                   className="text-center"
                 >
-                  <ExternalLink className="w-16 h-16 mx-auto mb-3" />
+                  <ExternalLink className="w-10 h-10 mx-auto mb-1" />
                   <p className="text-sm font-semibold tracking-wider">VIEW PROJECT</p>
                 </motion.div>
               </motion.div>
 
-              <div className="absolute top-6 right-6 bg-white text-black px-4 py-2 text-xs font-bold tracking-wider">
-                {project.status}
-              </div>
+              
             </motion.a>
 
             <motion.div
@@ -534,7 +528,7 @@ const ProjectCard = ({ project, index }) => {
               animate={{ scale: 1, opacity: 1 }}
               exit={{ scale: 0.5, opacity: 0 }}
               transition={{ type: "spring", damping: 25, stiffness: 300 }}
-              className="relative max-w-2xl max-h-[80vh] rounded-lg overflow-hidden"
+              className="relative max-w-2xl max-h-[80vh] rounded-lg bg-cover overflow-hidden"
               onClick={(e) => e.stopPropagation()}
             >
               <img
@@ -612,15 +606,13 @@ const AchievementCard = ({ achievement, index }) => {
                 transition={{ duration: 0.3 }}
                 className="absolute inset-0 bg-black/70 flex items-center justify-center"
               >
-                <div className="bg-white text-black px-6 py-3 text-center">
+                {/* <div className="bg-white text-black px-6 py-3 text-center">
                   <Star className="w-8 h-8 mx-auto mb-2" />
                   <p className="text-xl font-black">{achievement.rank}</p>
-                </div>
+                </div> */}
               </motion.div>
 
-            <div className="absolute top-4 right-4 bg-white text-black px-3 py-1.5 text-xs font-bold tracking-widest">
-              {achievement.category.toUpperCase()}
-            </div>
+            
           </div>
 
           <motion.div
