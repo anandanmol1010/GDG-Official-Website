@@ -21,14 +21,7 @@ export default function About() {
       >
         <div className="max-w-7xl mx-auto">
 
-          <div className="mb-6">
-            <p
-              className="text-[#4285F4] text-sm font-semibold uppercase tracking-wider mb-2"
-              style={{ fontFamily: "'Inter', sans-serif" }}
-            >
-              / About Us
-            </p>
-          </div>
+          
 
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
 
