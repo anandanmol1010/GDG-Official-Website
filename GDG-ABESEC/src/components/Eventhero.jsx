@@ -85,37 +85,39 @@ const EventHero = ({ showPast, setShowPast }) => {
               DISCOVER OUR EVENTS
             </span>
           </motion.div>
-          
+
           <motion.h1
             initial={{ y: -50, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="text-6xl md:text-8xl lg:text-9xl font-black mb-8 tracking-tighter relative inline-block"
+            className="text-6xl md:text-8xl lg:text-9xl font-black    mb-8 tracking-tighter relative  inline-block pb-4"
             style={{
-              background: 'linear-gradient(135deg, #fff 0%, #888 100%)',
-              WebkitBackgroundClip: 'text',
-              WebkitTextFillColor: 'transparent',
-              backgroundClip: 'text'
+              background: "linear-gradient(135deg, #fff 0%, #888 100%)",
+              WebkitBackgroundClip: "text",
+              WebkitTextFillColor: "transparent",
+              backgroundClip: "text",
+              lineHeight: 1.05,
             }}
           >
-            EVENTS
+          OUR EVENTS
             <motion.div
               initial={{ width: 0 }}
-              animate={{ width: '100%' }}
+              animate={{ width: "100%" }}
               transition={{ duration: 0.8, delay: 0.8 }}
-              className="absolute bottom-0 left-0 h-1 bg-white"
+              className="absolute left-0 h-1 bg-white"
+             
             />
           </motion.h1>
-          
+
           <motion.p
             initial={{ y: 30, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
             transition={{ duration: 0.8, delay: 0.6 }}
             className="text-base md:text-xl text-gray-500 max-w-3xl mx-auto mb-12"
             style={{
-              letterSpacing: '0.15em',
-              textTransform: 'uppercase',
-              fontWeight: 300
+              letterSpacing: "0.15em",
+              textTransform: "uppercase",
+              fontWeight: 300,
             }}
           >
             Experiences that inspire learning & innovation
@@ -127,15 +129,14 @@ const EventHero = ({ showPast, setShowPast }) => {
             transition={{ duration: 0.8, delay: 0.8 }}
             className="flex items-center justify-center gap-2 text-gray-500 text-xs"
             style={{
-              letterSpacing: '0.2em',
-              textTransform: 'uppercase',
-              fontWeight: 500
+              letterSpacing: "0.2em",
+              textTransform: "uppercase",
+              fontWeight: 500,
             }}
           >
             <span>Scroll down to explore</span>
           </motion.div>
-        <Navbar />
-
+          <Navbar />
         </div>
       </motion.section>
 
@@ -151,9 +152,7 @@ const EventHero = ({ showPast, setShowPast }) => {
             <button
               onClick={() => setShowPast(false)}
               className={`relative px-10 py-4 text-base font-bold tracking-wider transition-all duration-300 ${
-                !showPast
-                  ? 'text-black'
-                  : 'text-white hover:text-gray-300'
+                !showPast ? "text-black" : "text-white hover:text-gray-300"
               }`}
             >
               {!showPast && (
@@ -168,9 +167,7 @@ const EventHero = ({ showPast, setShowPast }) => {
             <button
               onClick={() => setShowPast(true)}
               className={`relative px-10 py-4 text-base font-bold tracking-wider transition-all duration-300 ${
-                showPast
-                  ? 'text-black'
-                  : 'text-white hover:text-gray-300'
+                showPast ? "text-black" : "text-white hover:text-gray-300"
               }`}
             >
               {showPast && (
