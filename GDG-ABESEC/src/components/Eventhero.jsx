@@ -18,7 +18,6 @@ const EventHero = ({ showPast, setShowPast }) => {
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
-  /* ================================================ */
 
   return (
     <>
@@ -54,7 +53,6 @@ const EventHero = ({ showPast, setShowPast }) => {
         `}
       </style>
 
-      {/* ===== BRANDING (ONLY CONDITIONAL TEXT) ===== */}
       <div className="fixed top-4 left-4 md:top-8 md:left-8 z-20 flex flex-col gap-2 pointer-events-none">
         <div className="flex items-center gap-2 pointer-events-auto">
           <img
@@ -81,7 +79,6 @@ const EventHero = ({ showPast, setShowPast }) => {
           </div>
         )}
       </div>
-      {/* ============================================ */}
 
       <motion.section
         initial={{ opacity: 0 }}
@@ -168,7 +165,7 @@ const EventHero = ({ showPast, setShowPast }) => {
           >
             <span>Scroll down to explore</span>
           </motion.div>
-        <Navbar />
+          <Navbar />
 
         </div>
       </motion.section>
@@ -184,11 +181,10 @@ const EventHero = ({ showPast, setShowPast }) => {
           <div className="flex justify-center gap-2">
             <button
               onClick={() => setShowPast(false)}
-              className={`relative px-10 py-4 text-base font-bold tracking-wider transition-all duration-300 ${
-                !showPast
+              className={`relative px-10 py-4 text-base font-bold tracking-wider transition-all duration-300 ${!showPast
                   ? 'text-black'
                   : 'text-white hover:text-gray-300'
-              }`}
+                }`}
             >
               {!showPast && (
                 <motion.div
@@ -202,11 +198,10 @@ const EventHero = ({ showPast, setShowPast }) => {
 
             <button
               onClick={() => setShowPast(true)}
-              className={`relative px-10 py-4 text-base font-bold tracking-wider transition-all duration-300 ${
-                showPast
+              className={`relative px-10 py-4 text-base font-bold tracking-wider transition-all duration-300 ${showPast
                   ? 'text-black'
                   : 'text-white hover:text-gray-300'
-              }`}
+                }`}
             >
               {showPast && (
                 <motion.div
