@@ -24,6 +24,7 @@ function Footer() {
         { label: "Team", href: "/team" },
         { label: "Showcase", href: "/achievements" },
         { label: "Contact", href: "/contact" },
+        { label: "Legacy", href: "/legacy" },
         { label: "Back to Top", action:"scrollTop" },
       ],
     },

@@ -10,6 +10,7 @@ import {
   IconMenu2,
   IconX,
   IconAward,
+  IconCrown,
 } from "@tabler/icons-react";
 import {
   AnimatePresence,
@@ -249,6 +250,11 @@ export default function Navbar({ className }) {
       title: "Showcase",
       icon: <IconAward className="w-full h-full text-purple-400" />,
       href: "/achievements",
+    },
+    {
+      title: "Legacy",
+      icon: <IconCrown className="w-full h-full text-amber-400" />,
+      href: "/legacy",
     },
     {
       title: "Contact",

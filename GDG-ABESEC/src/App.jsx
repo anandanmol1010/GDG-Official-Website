@@ -6,6 +6,7 @@ import EventsPage from "./pages/EventsPage";
 import TeamPage from "./pages/TeamPage";
 import AchivementPage from "./pages/AchivementPage";
 import ContactPage from "./pages/ContactPage";
+import LegacyPage from "./pages/LegacyPage";
 
 import ScrollToHash from "./components/ScrollToHash";
 import Loader from "./components/Loader";
@@ -29,6 +30,7 @@ function App() {
               <Route path="/events" element={<EventsPage />} />
               <Route path="/team" element={<TeamPage />} />
               <Route path="/achievements" element={<AchivementPage />} />
+              <Route path="/legacy" element={<LegacyPage />} />
               <Route path="/contact" element={<ContactPage />} />
               <Route path="*" element={<Navigate to="/" replace />} />
             </Routes>
